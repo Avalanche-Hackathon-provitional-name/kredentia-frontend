@@ -1,42 +1,187 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.form-wallet,
+.form-cert {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+  width: 100%;
+  animation: fadeIn 0.7s;
+}
+/* Títulos principales y subtítulos en azul */
+h2 {
+  color: #1976d2;
+  margin-bottom: 18px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.subtitle-cert {
+  color: #1976d2;
+  margin: 18px 0 6px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-wallet,
+.input-cert {
+  width: 100%;
+  max-width: 340px;
+  padding: 12px 16px 12px 40px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.5px solid #1976d2;
+  outline: none;
+  background: #fff;
+  color: #222;
+  transition: border 0.2s, box-shadow 0.2s;
+  margin-bottom: 4px;
+  box-shadow: 0 1.5px 4px rgba(25, 118, 210, 0.07);
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.input-wallet:focus,
+.input-cert:focus {
+  border: 2px solid #1565c0;
+  box-shadow: 0 0 0 2px #1976d233, 0 2px 8px #1976d211;
+}
+.input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #1976d2;
+  font-size: 18px;
+  pointer-events: none;
 }
 
-.card {
-  padding: 2em;
+.input-group {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
 }
 
-.read-the-docs {
-  color: #888;
+.cert-success {
+  background: #e3f6e8;
+  color: #1976d2;
+  padding: 18px 24px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 16px;
 }
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  padding: 48px 56px;
+  min-width: 450px;
+  min-height: 350px;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  background: #e0e0e0;
+  color: #333;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.tab-btn:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.tab-btn:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.tab-btn.active {
+  background: #1976d2;
+  color: #fff;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.main-btn {
+  padding: 10px 32px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(90deg, #1976d2 80%, #1565c0 100%);
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 8px #1976d211;
+  transition: background 0.2s, box-shadow 0.2s;
+  margin-top: 10px;
+}
+
+.main-btn:hover {
+  background: #1251a3;
+  box-shadow: 0 4px 16px #1976d233;
+}
+.back-btn {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  color: #1976d2;
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.2s, background 0.2s;
+  border-radius: 50%;
+}
+.back-btn:hover {
+  color: #1251a3;
+  background: #e3f2fd;
+}
+.box {
+  background: linear-gradient(135deg, #f5faff 60%, #e3f2fd 100%);
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(25, 118, 210, 0.13), 0 1.5px 4px rgba(0,0,0,0.08);
+  padding: 40px 36px 32px 36px;
+  min-width: 420px;
+  min-height: 350px;
+  position: relative;
+  transition: box-shadow 0.2s, background 0.3s;
+}
+.box:focus-within, .box:hover {
+  background: linear-gradient(135deg, #e3f2fd 60%, #bbdefb 100%);
+  box-shadow: 0 8px 32px #1976d233, 0 2px 8px #1976d211;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
