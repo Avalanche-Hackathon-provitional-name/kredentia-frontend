@@ -1,0 +1,74 @@
+.pendientes-boxes {
+  /* ...existing code... */
+}
+
+@media (max-width: 900px) {
+  .pendientes-boxes {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.2em;
+  }
+  .pendiente-box {
+    min-width: 120px;
+    min-height: 70px;
+    font-size: 1em;
+    padding: 1.2em 1.2em;
+  }
+}
+
+@media (max-width: 600px) {
+  .pendientes-boxes {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1em;
+  }
+  .pendiente-box {
+    min-width: 90px;
+    min-height: 50px;
+    font-size: 0.95em;
+    padding: 0.8em 0.8em;
+  }
+}
+/* Estilos exclusivos para la vista de pendientes */
+
+.pendientes-container {
+  padding: 2em;
+}
+
+.pendientes-boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2em;
+  margin-top: 2em;
+  justify-items: center;
+  align-items: center;
+  min-height: 320px;
+}
+
+.pendiente-box {
+  background: linear-gradient(135deg, #fffbe6 0%, #ffe066 100%);
+  border-radius: 2em;
+  box-shadow: 0 4px 16px 0 #ffd60033;
+  padding: 2em 2.5em;
+  min-width: 160px;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.pendiente-cantidad {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: #181818;
+  margin-bottom: 8px;
+}
+
+.pendiente-tipo {
+  color: #222;
+  letter-spacing: 1px;
+}

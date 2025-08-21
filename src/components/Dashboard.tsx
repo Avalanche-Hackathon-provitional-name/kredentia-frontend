@@ -2,18 +2,22 @@
 import './Dashboard.css';
 import React from 'react';
 
-const Dashboard: React.FC = () => (
+
+interface DashboardProps {
+  setView?: (view: 'dashboard' | 'pendientes') => void;
+}
+
+const Dashboard: React.FC<DashboardProps> = ({ setView }) => (
   <main className="dashboard">
     <div className="dashboard-header">
       <span>Hola</span>
-      
     </div>
     <div className="dashboard-stats">
       <div className="dashboard-card">
         <div className="dashboard-number">150</div>
         <div>docs firmados</div>
       </div>
-      <div className="dashboard-card">
+      <div className="dashboard-card" style={{ cursor: 'pointer' }} onClick={() => setView && setView('pendientes')}>
         <div className="dashboard-number">260</div>
         <div>docs pendientes</div>
       </div>
