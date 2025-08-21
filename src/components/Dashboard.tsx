@@ -1,10 +1,12 @@
+
+import './Dashboard.css';
 import React from 'react';
 
 const Dashboard: React.FC = () => (
   <main className="dashboard">
     <div className="dashboard-header">
       <span>Hola</span>
-      <button className="dashboard-close">X</button>
+      
     </div>
     <div className="dashboard-stats">
       <div className="dashboard-card">
@@ -21,15 +23,14 @@ const Dashboard: React.FC = () => (
       <table>
         <thead>
           <tr>
-            <th>Doc</th>
-            <th>Firma</th>
-            <th>Estado</th>
+            <th>Wallet</th>
+            <th>Tipo</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>01</td><td>Juan</td><td>Firmado</td></tr>
-          <tr><td>02</td><td>Ana</td><td>Pendiente</td></tr>
-          <tr><td>03</td><td>Pedro</td><td>Pendiente</td></tr>
+          <tr><td>0x123...abc</td><td>Admin</td></tr>
+          <tr><td>0x456...def</td><td>Usuario</td></tr>
+          <tr><td>0x789...ghi</td><td>Validador</td></tr>
         </tbody>
       </table>
     </div>
