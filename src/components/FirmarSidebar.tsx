@@ -18,7 +18,7 @@ interface FirmarSidebarProps {
 
 const FirmarSidebar: React.FC<FirmarSidebarProps> = ({ onBack, setSelectedDoc }) => {
   return (
-    <aside className="sidebar firmar-sidebar">
+    <aside className="sidebar firmar-sidebar sidebar-section">
       <button className="sidebar-back-btn" onClick={onBack}>&larr; Atrás</button>
       <h2 className="firmar-title">Por Firmar</h2>
       <ul className="firmar-wallet-list">
@@ -38,6 +38,6 @@ const FirmarSidebar: React.FC<FirmarSidebarProps> = ({ onBack, setSelectedDoc })
       </ul>
     </aside>
   );
-};
+}
 
 export default FirmarSidebar;

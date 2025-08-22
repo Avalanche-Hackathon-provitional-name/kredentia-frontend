@@ -36,7 +36,7 @@
 .firmar-modal-close:hover {
   background: #fff200;
 }
- .firmar-sidebar {
+.firmar-sidebar {
   width: 300px;
   background: #181818;
   box-shadow: 0 4px 24px 0 #ffd60055;
@@ -44,8 +44,12 @@
   flex-direction: column;
   min-height: 100vh;
   border-right: 2px solid #FFD600;
-  padding: 32px 16px 16px 16px;
+  padding: 32px 24px 24px 24px;
   box-sizing: border-box;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  z-index: 99;
 }
 
 .firmar-title {
@@ -70,9 +74,11 @@
   border-radius: 8px;
   padding: 12px 16px;
   margin-bottom: 12px;
-  font-size: 1rem;
+  font-size: 0.79rem;
   color: #fff;
   gap: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 .firmar-status {
@@ -84,14 +90,16 @@
   background: #FFD600;
   border: none;
   color: #181818;
-  font-size: 1.3em;
+  font-size: 1em;
   cursor: pointer;
-  margin-left: 8px;
-  padding: 4px 12px;
-  border-radius: 6px;
+  margin-left: 6px;
+  padding: 2px 8px;
+  border-radius: 5px;
   transition: background 0.2s, color 0.2s;
-  font-weight: bold;
+  font-weight: 600;
   box-shadow: 0 2px 8px 0 #ffd60033;
+  min-width: 28px;
+  min-height: 28px;
 }
 .firmar-doc-btn:hover {
   background: #fff200;
@@ -104,8 +112,9 @@
   color: #FFD600;
   font-size: 1.1em;
   font-weight: 600;
-  margin-bottom: 18px;
+  margin-bottom: 5px;
   cursor: pointer;
   text-align: left;
-  padding: 0 0 0.5em 0;
+  padding-top: 30px;
+  padding: 3 0 0.5em 0;
 }

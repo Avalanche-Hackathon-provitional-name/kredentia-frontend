@@ -15,7 +15,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className="header">
+      <div style={{ width: '100%', display: 'flex', alignItems: 'center', height: '100%', justifyContent: 'space-between' }}>
         <div className="header-left">
           <span className="header-logo">Kredentia</span>
         </div>
@@ -41,7 +41,6 @@ const Header: React.FC = () => {
                 </button>
               </>
             )}
-
             <span className="header-avatar">
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="18" cy="18" r="18" fill="#181818"/>
@@ -51,8 +50,7 @@ const Header: React.FC = () => {
             </span>
           </div>
         </div>
-      </header>
-
+      </div>
       {/* Modal de conexión */}
       {showModal && (
         <div className="wallet-modal-overlay" onClick={handleCloseModal}>
@@ -80,7 +78,7 @@ const Header: React.FC = () => {
         </div>
       )}
     </>
-  )
+  );
 }
 
 export default Header

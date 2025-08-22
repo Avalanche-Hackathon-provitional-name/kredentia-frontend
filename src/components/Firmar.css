@@ -1,141 +1,106 @@
+.firma-panel-btn-rechazar {
+	background: #e53935 !important;
+	color: #fff !important;
+	font-weight: 700;
+	box-shadow: 0 2px 12px 0 #e5393555;
+	border: none;
+}
+.firma-panel-btn-rechazar:hover {
+	background: #b71c1c !important;
+	color: #fff !important;
+}
+/* Estilos exclusivos para el panel de firmar (sin conflictos con FirmarSidebar) */
 
-.firmar-dashboard-main {
-  background: transparent;
-  width: 100vw;
-  min-height: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  pointer-events: none;
-}
-.firmar-dashboard-panel {
-  pointer-events: auto;
-}
-.firmar-dashboard-panel {
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px 0 #00000010;
-  max-width: 520px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 40px 32px 32px 32px;
-  position: relative;
-  z-index: 2;
+.firma-panel-main {
+	background: transparent;
+	width: 100vw;
+	min-height: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	pointer-events: none;
 }
 
-.firmar-dashboard-title {
-  text-align: center;
-  margin-bottom: 24px;
+	.firma-panel-panel {
+		margin-top: 48px;
+		pointer-events: auto;
+		background: #181818;
+		border-radius: 18px;
+		box-shadow: 0 0 24px 0 #ffd60099, 0 4px 24px 0 #00000055;
+		border: 2.5px solid #FFD600;
+		max-width: 420px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 36px 28px 28px 28px;
+		position: relative;
+		z-index: 2;
+		color: #fff;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+		transition: box-shadow 0.2s;
+	}
+
+.firma-panel-title {
+	text-align: center;
+	margin-bottom: 24px;
+	color: #FFD600;
+	font-size: 1.5em;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-shadow: 0 0 8px #ffd60088, 0 2px 8px #181818;
 }
 
-.firmar-dashboard-table {
-  width: 100%;
-  margin-bottom: 24px;
+.firma-panel-table {
+	width: 100%;
+	margin-bottom: 24px;
+	border-collapse: separate;
+	border-spacing: 0 8px;
 }
-.firmar-dashboard-table th {
-  text-align: left;
-  padding: 8px;
-  font-weight: 600;
-  color: #222;
+.firma-panel-table th {
+	text-align: left;
+	padding: 8px 12px;
+	font-weight: 600;
+	color: #FFD600;
+	background: transparent;
+	font-size: 1.08em;
 }
-.firmar-dashboard-table td {
-  padding: 8px;
-  color: #444;
-}
-
-.firmar-dashboard-btn-row {
-  text-align: right;
-}
-
-.firmar-dashboard-empty {
-  text-align: center;
-  color: #888;
-  font-size: 18px;
-}
-.firmar-dashboard-usericon {
-  font-size: 80px;
-  display: block;
-  margin-bottom: 16px;
-}
-.firmar-dashboard-empty-title {
-  font-weight: 600;
-  font-size: 22px;
-  margin-bottom: 8px;
-}
-.firmar-dashboard-empty-desc {
-  color: #666;
-  font-size: 16px;
-}
-.firmar-dashboard {
-  display: flex;
-  height: 100vh;
-  background: #f7f7fa;
+.firma-panel-table td {
+	padding: 8px 12px;
+	color: #fff;
+	background: #232323;
+	border-radius: 6px;
+	font-size: 1.08em;
 }
 
-.firmar-sidebar {
-  width: 260px;
-  background: #fff;
-  border-right: 1px solid #e0e0e0;
-  padding: 32px 16px 16px 16px;
-  box-sizing: border-box;
+.firma-panel-btn-row {
+	text-align: right;
+	width: 100%;
 }
 
-.firmar-sidebar h2 {
-  font-size: 1.3rem;
-  margin-bottom: 24px;
-  font-weight: 600;
-  color: #222;
+.firma-panel-btn {
+	background: #FFD600;
+	color: #181818;
+	border: none;
+	border-radius: 8px;
+	padding: 14px 36px;
+	font-size: 1.15rem;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+	box-shadow: 0 2px 12px 0 #ffd60055;
+	letter-spacing: 1px;
+	text-shadow: 0 1px 0 #fffbe6;
 }
-
-.firmar-wallet-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f0f0f5;
-  border-radius: 8px;
-  padding: 12px 16px;
-  margin-bottom: 12px;
-  font-size: 1rem;
-}
-
-.firmar-status {
-  color: #e67e22;
-  font-weight: 500;
-}
-
-.firmar-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.firmar-user-icon {
-  margin-bottom: 32px;
-}
-
-.firmar-action {
-  margin-top: 16px;
-}
-
-.firmar-btn {
-  background: #4f8cff;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 16px 40px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.firmar-btn:hover {
-  background: #2563eb;
+.firma-panel-btn:hover {
+	background: #fff200;
+	color: #181818;
+	box-shadow: 0 0 16px 2px #ffd60099;
 }

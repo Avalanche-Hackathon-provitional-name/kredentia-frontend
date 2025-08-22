@@ -1,3 +1,30 @@
+.sidebar-bottom-btn-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+.sidebar-bottom-btn {
+  width: 90%;
+  margin-bottom: 0;
+  margin-top: 0.5em;
+}
+.sidebar-item-yellow {
+  background: #FFD600 !important;
+  color: #181818 !important;
+  font-weight: 700;
+  border: 1.5px solid #FFD600 !important;
+  box-shadow: 0 2px 12px 0 #ffd60055;
+  margin-bottom: 0;
+  margin-top: 5em;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.sidebar-item-yellow:hover {
+  background: #fff200 !important;
+  color: #181818 !important;
+  box-shadow: 0 0 16px 2px #ffd60099;
+}
 /* Estilos exclusivos para el sidebar */
 
 .sidebar {
