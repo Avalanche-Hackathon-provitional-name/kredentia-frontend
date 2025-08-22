@@ -1,0 +1,111 @@
+.firmar-modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.firmar-modal {
+  background: #fff;
+  color: #181818;
+  border-radius: 12px;
+  padding: 32px 28px 24px 28px;
+  min-width: 260px;
+  box-shadow: 0 8px 32px 0 #00000033;
+  text-align: center;
+}
+
+.firmar-modal-close {
+  margin-top: 18px;
+  background: #FFD600;
+  color: #181818;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 24px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.firmar-modal-close:hover {
+  background: #fff200;
+}
+ .firmar-sidebar {
+  width: 300px;
+  background: #181818;
+  box-shadow: 0 4px 24px 0 #ffd60055;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  border-right: 2px solid #FFD600;
+  padding: 32px 16px 16px 16px;
+  box-sizing: border-box;
+}
+
+.firmar-title {
+  font-size: 1.3rem;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: #FFD600;
+  text-align: center;
+}
+
+.firmar-wallet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.firmar-wallet-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #232323;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #fff;
+  gap: 8px;
+}
+
+.firmar-status {
+  color: #FFD600;
+  font-weight: 500;
+}
+
+.firmar-doc-btn {
+  background: #FFD600;
+  border: none;
+  color: #181818;
+  font-size: 1.3em;
+  cursor: pointer;
+  margin-left: 8px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  font-weight: bold;
+  box-shadow: 0 2px 8px 0 #ffd60033;
+}
+.firmar-doc-btn:hover {
+  background: #fff200;
+  color: #181818;
+}
+
+.sidebar-back-btn {
+  background: none;
+  border: none;
+  color: #FFD600;
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 18px;
+  cursor: pointer;
+  text-align: left;
+  padding: 0 0 0.5em 0;
+}
