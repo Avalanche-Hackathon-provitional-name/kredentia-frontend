@@ -1,4 +1,3 @@
-// Sonido de notificación (puedes cambiar la URL por otro mp3/wav si lo deseas)
 const NOTIF_SOUND_URL = '/sounds/notification.mp3';
 // ...dentro del componente Header...
 // (mover esto después de la declaración de notifications)
@@ -57,8 +56,6 @@ const Header: React.FC<HeaderProps> = ({ setView }) => {
     const pad = (n: number) => n.toString().padStart(2, '0');
     return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
   }
-
-
   const [notifications, setNotifications] = useState<Array<{ id: string; message: string; datetime: string }>>([
     { id: '1', message: 'Tienes una nueva firma pendiente', datetime: getNow() },
     { id: '2', message: 'Tienes una nueva firma pendiente', datetime: getNow() },
