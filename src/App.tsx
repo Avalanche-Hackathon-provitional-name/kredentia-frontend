@@ -21,7 +21,7 @@ function App() {
 		return (
 			<>
 				<div className="navbar-section">
-					<Header />
+					<Header setView={setView} />
 				</div>
 				<div className="main-layout">
 					<div className="sidebar-section">

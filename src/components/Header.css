@@ -1,3 +1,77 @@
+.notif-menu {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px #0002;
+  padding: 0.5rem 0;
+  z-index: 10;
+  animation: notif-fade-in 0.2s;
+}
+
+.notif-menu-title {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem 0.25rem 1rem;
+  border-bottom: 1px solid #eee;
+  color: #181818;
+}
+
+.notif-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notif-item {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.notif-item:hover {
+  background: #f7f7f7;
+}
+
+@keyframes notif-fade-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.shake {
+  animation: shake-bell 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake-bell {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+
+.bell-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 9px;
+  height: 9px;
+  background: #ff3b3b;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 2px #0002;
+  z-index: 2;
+}
+/* Icono de campana de notificaciones */
+.header-bell {
+  display: flex;
+  align-items: center;
+  transition: filter 0.2s;
+}
+.header-bell:hover {
+  filter: brightness(1.2);
+}
 /* Estilos exclusivos para el header/navbar */
 
 .header {
