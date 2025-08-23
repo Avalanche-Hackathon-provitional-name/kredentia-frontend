@@ -189,3 +189,80 @@
   color: #ff4d4f;
   font-size: 0.9rem;
 }
+
+
+
+
+
+/* 🔔 Botón de notificaciones */
+.notification-wrapper {
+  position: relative;
+  margin-left: 10px;
+}
+
+.notification-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #181818;
+  position: relative;
+  padding: 6px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.notification-button:hover {
+  background: #ffd60022;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
+
+/* Popup de notificaciones */
+.notification-popup {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #1e1e1e;
+  border: 1px solid #ffd60055;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  width: 260px;
+  max-height: 260px;
+  overflow-y: auto;
+  z-index: 1100;
+}
+
+.notification-item {
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #fff;
+  border-bottom: 1px solid #333;
+  transition: background 0.2s;
+}
+
+.notification-item:hover {
+  background: #2a2a2a;
+}
+
+.notification-empty {
+  padding: 15px;
+  text-align: center;
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+

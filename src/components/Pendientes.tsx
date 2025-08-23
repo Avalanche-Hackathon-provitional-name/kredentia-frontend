@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Firmar from './Firmar';
 import './Pendientes.css';
+
 const pendientesData = [
   { tipo: 'Certificado', cantidad: 3 },
   { tipo: 'Diploma', cantidad: 5 },
@@ -8,9 +8,11 @@ const pendientesData = [
   { tipo: 'Matricula', cantidad: 4 },
 ];
 
-
 interface PendientesProps {
-  setView?: (view: 'dashboard' | 'pendientes' | 'firmar') => void;
+  setView?: (
+    view: 'dashboard' | 'pendientes' | 'firmar',
+    doc?: { name: string; tipo: string }
+  ) => void;
 }
 
 const Pendientes: React.FC<PendientesProps> = ({ setView }) => {
@@ -20,7 +22,8 @@ const Pendientes: React.FC<PendientesProps> = ({ setView }) => {
     if (!certificadoFirmado) {
       setCertificadoFirmado(true);
       setTimeout(() => {
-        setView && setView('firmar');
+        setView &&
+          setView('firmar', { name: '0xUsuarioDemo', tipo: 'Certificado' });
       }, 400);
     }
   };
@@ -34,7 +37,11 @@ const Pendientes: React.FC<PendientesProps> = ({ setView }) => {
               className="pendiente-box"
               key={tipo}
               onClick={tipo === 'Certificado' ? handleCertificadoClick : undefined}
-              style={tipo === 'Certificado' ? { cursor: 'pointer', border: '2px solid #4f8cff' } : {}}
+              style={
+                tipo === 'Certificado'
+                  ? { cursor: 'pointer', border: '2px solid #4f8cff' }
+                  : {}
+              }
             >
               <div className="pendiente-cantidad">{cantidad}</div>
               <div className="pendiente-tipo">{tipo}</div>
