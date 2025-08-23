@@ -1,3 +1,64 @@
+/* Notificaciones - Header */
+.notif-menu {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.13);
+  border: 1px solid #e6e6e6;
+  padding: 10px 0 10px 0;
+  min-width: 270px;
+  margin-top: 10px;
+  z-index: 1000;
+  position: absolute;
+  right: 0;
+  top: 36px;
+}
+.notif-menu-title {
+  font-weight: 700;
+  font-size: 1.08em;
+  padding: 0 18px 8px 18px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 6px;
+  color: #222;
+  letter-spacing: 0.01em;
+}
+.notif-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.notif-list--scroll {
+  max-height: 220px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #FFD600 #f5f5f5;
+}
+.notif-item {
+  background: #fff;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 12px 18px 8px 18px;
+  transition: background 0.15s;
+  color: #222;
+  font-weight: 400;
+}
+.notif-item--clickable {
+  cursor: pointer;
+  color: #4ADE80;
+  font-weight: 600;
+}
+.notif-item--clickable:hover {
+  background: #f7faff;
+}
+.notif-item-date {
+  font-size: 0.8em;
+  color: #888;
+  font-weight: 400;
+  margin-top: 2px;
+}
+.notif-item--empty {
+  color: #888;
+  padding: 14px 18px;
+  text-align: center;
+}
 /* Estilos exclusivos para el dashboard */
 
 .dashboard {
