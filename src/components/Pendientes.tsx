@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Firmar from './Firmar';
 import './Pendientes.css';
 const pendientesData = [
   { tipo: 'Certificado', cantidad: 3 },

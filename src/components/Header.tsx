@@ -134,7 +134,7 @@ const Header: React.FC<HeaderProps> = ({ setView }) => {
     <>
       {/* Botón temporal para probar la llegada de una nueva notificación */}
       <button
-        style={{ position: '', top: 10, right: 10, zIndex: 9999 }}
+        style={{ position: 'absolute', top: 10, right: 10, zIndex: 9999 }}
         onClick={() => {
           setNotifications((prev) => [
             ...prev,
