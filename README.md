@@ -140,20 +140,6 @@ Kredentia es una plataforma web moderna para la gestión y firma de documentos d
 
 ---
 
-## 📸 Capturas
-
-### Notificaciones y Panel de Firma
-
-![Notificaciones](public/img/Notificacion.png)
-![PanelFirma](public/img/PanelFirma.png)
-
-### Sidebar y Dashboard
-
-![Sidebar](public/img/Sidebar.png)
-![Dashboard](public/img/Dashboard.png)
-
----
-
 ## 🤝 Contribuciones
 
 ¡Pull requests y sugerencias son bienvenidas! Siéntete libre de abrir issues para reportar bugs o proponer mejoras.
