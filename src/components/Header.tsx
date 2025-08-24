@@ -18,29 +18,29 @@ const Header: React.FC<HeaderProps> = ({ setView, setSelectedDoc }) => {
   const [showNotifMenu, setShowNotifMenu] = useState(false)
 
   
-  //FECHA Y HORA EN LAS NOTIS SOLO BORRAR CUANDO LO TENGA EN BACKEND
+  // DATE AND TIME FOR NOTIFICATIONS (remove when backend ready)
   function getNow() {
     const d = new Date();
     const pad = (n: number) => n.toString().padStart(2, '0');
-    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
   }
   const [notifications, setNotifications] = useState<Array<{ id: string; message: string; datetime: string }>>([
   ]);
 
-  // Función para agregar notificación de prueba
+  // Function to add a test notification
   const addTestNotification = () => {
     setNotifications((prev) => [
       ...prev,
       {
         id: (Math.random() * 100000).toFixed(0),
-        message: 'Tienes una nueva firma pendiente',
+  message: 'You have a new signature pending',
         datetime: getNow(),
       },
     ]);
     setHasNotifications(true);
   };
 
-  // Listener para la tecla Enter
+  // Listener for Enter key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Enter') {
@@ -53,13 +53,13 @@ const Header: React.FC<HeaderProps> = ({ setView, setSelectedDoc }) => {
     };
   }, []);
 
-  // Reproduce un sonido cuando llega una nueva notificación
+  // Play sound when a new notification arrives
   const playNotifSound = () => {
     const audio = new Audio(NOTIF_SOUND_URL);
     audio.play();
   };
 
-  // Detecta si hay nuevas notificaciones y reproduce el sonido
+  // Detects if there are new notifications and plays the sound
   const prevNotifCount = useRef(notifications.length);
   useEffect(() => {
     if (notifications.length > prevNotifCount.current) {
@@ -74,6 +74,7 @@ const Header: React.FC<HeaderProps> = ({ setView, setSelectedDoc }) => {
       try {
         const res = await fetch(`https://tu-backend.com/api/notifications?user=${address}`);
         if (!res.ok) throw new Error('Error al obtener notificaciones');
+  if (!res.ok) throw new Error('Error fetching notifications');
         const data = await res.json();
         setNotifications(data.notifications || []);
         setHasNotifications((data.notifications || []).some((n: any) => !n.read));
@@ -95,7 +96,7 @@ const Header: React.FC<HeaderProps> = ({ setView, setSelectedDoc }) => {
     setShowNotifMenu((prev) => !prev);
   };
 
-  // Cerrar menú si se hace clic fuera
+  // Close menu if clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -122,19 +123,19 @@ const Header: React.FC<HeaderProps> = ({ setView, setSelectedDoc }) => {
 
   return (
     <>
-      {/* Al presionar la tecla = en el teclado, agregar notificación de prueba */}
+  {/* Press = key to add a test notification */}
       <div style={{ width: '100%', display: 'flex', alignItems: 'center', height: '100%', justifyContent: 'space-between' }}>
         <div className="header-left">
           <span className="header-logo">Kredentia</span>
         </div>
         <div className="header-right" style={{ display: 'flex', alignItems: 'center' }}>
-          {/* Icono de campana de notificaciones */}
+          {/* Notification bell icon */}
           <span
             className={`header-bell`}
             style={{ marginRight: '20px', cursor: 'pointer', position: 'relative' }}
             ref={bellRef}
             onClick={handleBellClick}
-            title="Notificaciones"
+            title="Notifications"
           >
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2zm6-6V11c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.63 5.36 6 7.92 6 11v5l-1.29 1.29A1 1 0 0 0 6 19h12a1 1 0 0 0 .71-1.71L18 16z" fill="#FFD600"/>
@@ -147,13 +148,13 @@ const Header: React.FC<HeaderProps> = ({ setView, setSelectedDoc }) => {
                 className={"notif-menu" + (showNotifMenu ? " notif-menu--open" : "")}
                 ref={notifMenuRef}
               >
-                <div className="notif-menu-title">Notificaciones</div>
+                <div className="notif-menu-title">Notifications</div>
                 <ul
                   className={"notif-list" + (notifications.length > 3 ? " notif-list--scroll" : "")}
                 >
-                  {/* Aquí se renderizan las notificaciones recibidas del backend */}
+                  
                   {notifications.length === 0 ? (
-                    <li className="notif-item notif-item--empty">No tienes notificaciones</li>
+                    <li className="notif-item notif-item--empty">No notifications</li>
                   ) : (
                     notifications.map((notif) => (
                       <li
@@ -161,7 +162,7 @@ const Header: React.FC<HeaderProps> = ({ setView, setSelectedDoc }) => {
                         key={notif.id}
                         onClick={() => {
                           if (setView) setView('firmar');
-                          if (setSelectedDoc) setSelectedDoc({ name: 'Wallet 1', tipo: 'Certificado' });
+                          if (setSelectedDoc) setSelectedDoc({ name: 'Wallet 1', tipo: 'Certificate' });
                           setNotifications((prev) => prev.filter((n) => n.id !== notif.id));
                         }}
                       >
@@ -180,7 +181,7 @@ const Header: React.FC<HeaderProps> = ({ setView, setSelectedDoc }) => {
                 onClick={handleConnectClick}
                 className="wallet-button"
               >
-                Conectar Wallet
+                Connect Wallet
               </button>
             ) : (
               <>
@@ -191,7 +192,7 @@ const Header: React.FC<HeaderProps> = ({ setView, setSelectedDoc }) => {
                   onClick={() => disconnect()}
                   className="wallet-button"
                 >
-                  Desconectar
+                Disconnect
                 </button>
               </>
             )}
@@ -205,7 +206,6 @@ const Header: React.FC<HeaderProps> = ({ setView, setSelectedDoc }) => {
           </div>
         </div>
       </div>
-      {/* Modal de conexión */}
       {showModal && (
         <div className="wallet-modal-overlay" onClick={handleCloseModal}>
           <div className="wallet-modal" onClick={(e) => e.stopPropagation()}>
@@ -227,7 +227,8 @@ const Header: React.FC<HeaderProps> = ({ setView, setSelectedDoc }) => {
               <div>{status}</div>
               <div>{error?.message}</div>
             </div>
-            <button className="wallet-close" onClick={handleCloseModal}>Cerrar</button>
+            {/* <button className="wallet-close" onClick={handleCloseModal}>Cerrar</button> */}
+            <button className="wallet-close" onClick={handleCloseModal}>Close</button>
           </div>
         </div>
       )}

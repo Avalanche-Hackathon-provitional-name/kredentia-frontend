@@ -21,20 +21,20 @@ const Sidebar: React.FC<SidebarProps> = ({ setView, view, setSelectedDoc, onLogo
         <ul>
           <li className="sidebar-item" onClick={() => setView && setView('dashboard')}>Dashboard</li>
           <li className="sidebar-item">Docs</li>
-          <li className="sidebar-item">Usuarios</li>
+          <li className="sidebar-item">User</li>
           <li className="sidebar-item">Config</li>
           <li className="sidebar-item">Plugins</li>
-          <li className="sidebar-item" onClick={() => setView && setView('pendientes')}>Pendientes</li>
+          <li className="sidebar-item" onClick={() => setView && setView('pendientes')}>Pending</li>
           <button
             className="sidebar-item sidebar-item-yellow sidebar-bottom-btn"
             onClick={onLogout}
           >
-            Atrás
+            Back
           </button>
         </ul>
       </nav>
       <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginBottom: 8, marginTop: 16 }}>
-        {/* Espacio inferior */}
+        {/* Bottom space */}
       </div>
     </aside>
   );

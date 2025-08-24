@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import './Pendientes.css';
-const pendientesData = [
-  { tipo: 'Certificado', cantidad: 3 },
-  { tipo: 'Diploma', cantidad: 5 },
-  { tipo: 'Record', cantidad: 2 },
-  { tipo: 'Matricula', cantidad: 4 },
+const pendingData = [
+  { type: 'Certificate', amount: 3 },
+  { type: 'Diploma', amount: 5 },
+  { type: 'Record', amount: 2 },
+  { type: 'Enrollment', amount: 4 },
 ];
 
 
-interface PendientesProps {
+interface PendingProps {
   setView?: (view: 'dashboard' | 'pendientes' | 'firmar') => void;
 }
 
-const Pendientes: React.FC<PendientesProps> = ({ setView }) => {
-  const [certificadoFirmado, setCertificadoFirmado] = useState(false);
+const Pending: React.FC<PendingProps> = ({ setView }) => {
+  const [certificateSigned, setCertificateSigned] = useState(false);
 
-  const handleCertificadoClick = () => {
-    if (!certificadoFirmado) {
-      setCertificadoFirmado(true);
+  const handleCertificateClick = () => {
+    if (!certificateSigned) {
+      setCertificateSigned(true);
       setTimeout(() => {
         setView && setView('firmar');
       }, 400);
@@ -28,15 +28,15 @@ const Pendientes: React.FC<PendientesProps> = ({ setView }) => {
     <main className="dashboard">
       <div className="pendientes-container">
         <div className="pendientes-boxes">
-          {pendientesData.map(({ tipo, cantidad }) => (
+          {pendingData.map(({ type, amount }) => (
             <div
               className="pendiente-box"
-              key={tipo}
-              onClick={tipo === 'Certificado' ? handleCertificadoClick : undefined}
-              style={tipo === 'Certificado' ? { cursor: 'pointer', border: '2px solid #4f8cff' } : {}}
+              key={type}
+              onClick={type === 'Certificate' ? handleCertificateClick : undefined}
+              style={type === 'Certificate' ? { cursor: 'pointer', border: '2px solid #4f8cff' } : {}}
             >
-              <div className="pendiente-cantidad">{cantidad}</div>
-              <div className="pendiente-tipo">{tipo}</div>
+              <div className="pendiente-cantidad">{amount}</div>
+              <div className="pendiente-tipo">{type}</div>
             </div>
           ))}
         </div>
@@ -45,4 +45,4 @@ const Pendientes: React.FC<PendientesProps> = ({ setView }) => {
   );
 };
 
-export default Pendientes;
+export default Pending;

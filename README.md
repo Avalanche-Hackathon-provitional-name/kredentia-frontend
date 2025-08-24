@@ -15,183 +15,177 @@ Kredentia es una plataforma web moderna para la gestión y firma de documentos d
 ### ¿Para quién es?
 - Empresas que requieren validar documentos de empleados o clientes.
 - Universidades o instituciones que emiten certificados digitales.
-- Usuarios que desean firmar documentos de forma segura usando su wallet.
+# Kredentia Frontend
+
+![Vite](https://img.shields.io/badge/Vite-Frontend-blue?logo=vite)
+![React](https://img.shields.io/badge/React-18.x-61dafb?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.x-3178c6?logo=typescript)
+![Wagmi](https://img.shields.io/badge/Wagmi-Web3-yellow?logo=ethereum)
 
 ---
 
-## 🧭 ¿Cómo funciona el flujo de usuario?
+## 🚀 What is Kredentia?
 
-1. **Inicio y Dashboard:**
-  - El usuario accede al dashboard principal donde puede ver un resumen y acceder a las diferentes secciones.
-2. **Conexión de Wallet:**
-  - El usuario conecta su wallet Web3 (por ejemplo, MetaMask) para autenticarse y firmar documentos.
-3. **Recepción de Notificaciones:**
-  - Cuando hay documentos pendientes de firma, el usuario recibe una notificación visual y sonora.
-4. **Panel de Firmar:**
-  - Al hacer clic en una notificación, se abre el panel de firma con los datos del documento y la wallet asociada.
-5. **Firma/Rechazo:**
-  - El usuario puede firmar el documento o rechazarlo, dejando un motivo si lo desea.
-6. **Actualización en tiempo real:**
-  - El sistema actualiza el estado de los documentos y notificaciones automáticamente.
+Kredentia is a modern web platform for managing and signing digital documents, with Web3 wallet integration (such as MetaMask). Its goal is to make document validation and signing secure, fast, and transparent for both users and administrators.
+
+### Who is it for?
+- Companies that need to validate employee or client documents.
+- Universities or institutions that issue digital certificates.
+- Users who want to securely sign documents using their wallet.
 
 ---
 
-## 🗂️ Estructura del Proyecto (Explicada)
+## 🧭 How does the user flow work?
+
+1. **Start and Dashboard:**
+  - The user accesses the main dashboard, where they can see a summary and access different sections.
+2. **Wallet Connection:**
+  - The user connects their Web3 wallet (e.g., MetaMask) to authenticate and sign documents.
+3. **Receiving Notifications:**
+  - When there are documents pending signature, the user receives a visual and sound notification.
+4. **Sign Panel:**
+  - Clicking a notification opens the sign panel with the document and wallet details.
+5. **Sign/Reject:**
+  - The user can sign or reject the document, optionally leaving a reason.
+6. **Real-time Update:**
+  - The system updates the status of documents and notifications automatically.
+
+---
+
+## 🗂️ Project Structure (Explained)
 
 ```
-├── public/                  # Archivos públicos y recursos estáticos
-│   ├── vite.svg             # Logo de Vite
-│   └── sounds/              # Sonidos para notificaciones
+├── public/                  # Public files and static resources
+│   ├── vite.svg             # Vite logo
+│   └── sounds/              # Notification sounds
 │       └── notification.mp3
-├── src/                     # Código fuente principal
-│   ├── App.tsx              # Componente raíz, maneja el layout y el routing de vistas
-│   ├── main.tsx             # Punto de entrada de React
-│   ├── config.ts            # Configuración global (si aplica)
-│   ├── assets/              # Imágenes y recursos gráficos
-│   ├── components/          # Componentes reutilizables
-│   │   ├── Header.tsx       # Barra superior, notificaciones y conexión de wallet
-│   │   ├── Sidebar.tsx      # Barra lateral de navegación
-│   │   ├── FirmarSidebar.tsx# Lista de wallets/documentos por firmar
-│   │   ├── Firmar.tsx       # Panel de firma de documento
-│   │   ├── Dashboard.tsx    # Vista principal
-│   │   ├── Pendientes.tsx   # Documentos pendientes
+├── src/                     # Main source code
+│   ├── App.tsx              # Root component, handles layout and view routing
+│   ├── main.tsx             # React entry point
+│   ├── config.ts            # Global config (if any)
+│   ├── assets/              # Images and graphic resources
+│   ├── components/          # Reusable components
+│   │   ├── Header.tsx       # Top bar, notifications, and wallet connection
+│   │   ├── Sidebar.tsx      # Navigation sidebar
+│   │   ├── FirmarSidebar.tsx# List of wallets/documents to sign
+│   │   ├── Firmar.tsx       # Document sign panel
+│   │   ├── Dashboard.tsx    # Main view
+│   │   ├── Pendientes.tsx   # Pending documents
 │   │   └── ...
 │   └── ...
-├── package.json             # Dependencias y scripts
-├── tsconfig.json            # Configuración de TypeScript
-├── vite.config.ts           # Configuración de Vite
-└── README.md                # Documentación del proyecto
+├── package.json             # Dependencies and scripts
+├── tsconfig.json            # TypeScript config
+├── vite.config.ts           # Vite config
+└── README.md                # Project documentation
 ```
 
 ---
 
-## 🧩 Componentes principales y su función
+## 🧩 Main Components and Their Function
 
 ### `Header.tsx`
-- Muestra el nombre de la app y el avatar del usuario.
-- Permite conectar/desconectar la wallet.
-- Muestra el icono de notificaciones (campana) y el menú de notificaciones.
-- Al hacer clic en una notificación, abre el panel de firma del documento correspondiente.
+- Shows the app name and user avatar.
+- Allows wallet connect/disconnect.
+- Shows the notification bell and menu.
+- Clicking a notification opens the sign panel for the corresponding document.
 
 ### `Sidebar.tsx`
-- Barra lateral con navegación entre Dashboard, Pendientes y Firmar.
-- Si la vista es "firmar", muestra el componente `FirmarSidebar`.
+- Sidebar navigation between Dashboard, Pending, and Sign.
+- If the view is "sign", shows the `FirmarSidebar` component.
 
 ### `FirmarSidebar.tsx`
-- Lista de wallets/documentos que están pendientes de firma.
-- Al seleccionar uno, se muestra el panel de firma (`Firmar.tsx`).
+- List of wallets/documents pending signature.
+- Selecting one shows the sign panel (`Firmar.tsx`).
 
 ### `Firmar.tsx`
-- Panel donde se visualiza el documento seleccionado.
-- Permite firmar o rechazar el documento (con motivo).
+- Panel to view the selected document.
+- Allows signing or rejecting the document (with reason).
 
 ### `Dashboard.tsx`
-- Vista principal con resumen y accesos rápidos.
+- Main view with summary and quick access.
 
 ### `Pendientes.tsx`
-- Lista de todos los documentos pendientes de firma.
+- List of all documents pending signature.
 
 ---
 
-## 🔗 Props y comunicación entre componentes
+## 🔗 Props and Component Communication
 
-- `setView(view)`: Cambia la vista principal (dashboard, pendientes, firmar).
-- `setSelectedDoc(doc)`: Selecciona el documento/wallet a mostrar en el panel de firma.
-- `notifications`: Array de notificaciones activas.
-
----
-
-## 🛡️ Seguridad y Web3
-
-- La autenticación y firma se realiza usando la wallet del usuario (por ejemplo, MetaMask) gracias a la librería wagmi.
-- Las notificaciones se obtienen desde el backend usando la dirección de la wallet conectada.
-- El sonido de notificación se reproduce solo cuando hay nuevas notificaciones.
+- `setView(view)`: Changes the main view (dashboard, pending, sign).
+- `setSelectedDoc(doc)`: Selects the document/wallet to show in the sign panel.
+- `notifications`: Array of active notifications.
 
 ---
 
-## 🖥️ Ejemplo de flujo de uso
+## 🛡️ Security and Web3
 
-1. El usuario entra a la app y conecta su wallet.
-2. Recibe una notificación: "Tienes una nueva firma pendiente de Wallet 2 (Diploma)".
-3. Hace clic en la campana y luego en la notificación.
-4. Se abre el panel de firma con los datos del documento y la wallet.
-5. El usuario firma o rechaza el documento.
-6. El estado se actualiza y la notificación desaparece.
+- Authentication and signing is done using the user's wallet (e.g., MetaMask) via the wagmi library.
+- Notifications are fetched from the backend using the connected wallet address.
+- Notification sound only plays when there are new notifications.
 
 ---
 
-## 🛠️ Tecnologías usadas (detallado)
+## 🖥️ Example User Flow
 
-- **Vite**: Bundler ultrarrápido para desarrollo moderno.
-- **React**: Librería para construir interfaces de usuario.
-- **TypeScript**: Añade tipado estático a JavaScript para mayor robustez.
-- **Wagmi**: Facilita la integración de wallets y Web3 en React.
-- **CSS Modules**: Permite estilos encapsulados por componente.
-
----
-
-## 📦 Scripts útiles
-
-| Comando         | Descripción                  |
-|-----------------|-----------------------------|
-| `npm run dev`   | Inicia modo desarrollo      |
-| `npm run build` | Compila para producción     |
-| `npm run preview`| Previsualiza build         |
+1. The user enters the app and connects their wallet.
+2. Receives a notification: "You have a new signature pending from Wallet 2 (Diploma)".
+3. Clicks the bell and then the notification.
+4. The sign panel opens with the document and wallet details.
+5. The user signs or rejects the document.
+6. The state updates and the notification disappears.
 
 ---
 
-## 🤝 Contribuciones
+## 🛠️ Technologies Used (Detailed)
 
-¡Pull requests y sugerencias son bienvenidas! Siéntete libre de abrir issues para reportar bugs o proponer mejoras.
+- **Vite**: Ultra-fast bundler for modern development.
+- **React**: Library for building user interfaces.
+- **TypeScript**: Adds static typing to JavaScript for robustness.
+- **Wagmi**: Makes wallet and Web3 integration easy in React.
+- **CSS Modules**: Enables component-scoped styles.
 
 ---
 
-## 📝 Licencia
+## 📦 Useful Scripts
+
+| Command           | Description                |
+|-------------------|---------------------------|
+| `npm run dev`     | Start development mode    |
+| `npm run build`   | Build for production      |
+| `npm run preview` | Preview production build  |
+
+---
+
+## 📸 Screenshots
+
+### Notifications and Sign Panel
+
+![Notifications](https://i.imgur.com/2yaf2kA.png)
+*Source file: `src/components/Header.tsx` and `src/components/Firmar.tsx`*
+
+### Sidebar
+
+![Sidebar](https://i.imgur.com/4Qw8QwB.png)
+*Source file: `src/components/Sidebar.tsx` and `src/components/FirmarSidebar.tsx`*
+
+### Dashboard
+
+![Dashboard](https://i.imgur.com/4Qw8QwB.png)
+*Source file: `src/components/Dashboard.tsx`*
+
+---
+
+## 🤝 Contributions
+
+Pull requests and suggestions are welcome! Feel free to open issues to report bugs or propose improvements.
+
+---
+
+## 📝 License
 
 MIT
 
 ---
-
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 

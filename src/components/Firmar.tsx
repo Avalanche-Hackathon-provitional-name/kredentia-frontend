@@ -7,17 +7,17 @@ interface FirmarProps {
 import React, { useState } from 'react';
 
 const Firmar: React.FC<FirmarProps> = ({ selectedDoc }) => {
-  const [showRechazo, setShowRechazo] = useState(false);
-  const [motivo, setMotivo] = useState('');
+  const [showReject, setShowReject] = useState(false);
+  const [reason, setReason] = useState('');
   if (!selectedDoc) return null;
   return (
     <div className="firma-panel-panel">
-      <h2 className="firma-panel-title">Documento Seleccionado</h2>
-      {/* Imagen del documento */}
+      <h2 className="firma-panel-title">Selected Document</h2>
+      {/* Document image */}
       <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
         <img
           src="https://cdn-icons-png.flaticon.com/512/337/337946.png"
-          alt="Documento"
+          alt="Document"
           style={{ maxWidth: 120, maxHeight: 120, borderRadius: 12, boxShadow: '0 2px 12px #ffd60055', background: '#232323', padding: 8 }}
         />
       </div>
@@ -28,7 +28,7 @@ const Firmar: React.FC<FirmarProps> = ({ selectedDoc }) => {
             <td>{selectedDoc.name}</td>
           </tr>
           <tr>
-            <th>Tipo</th>
+            <th>Type</th>
             <td>{selectedDoc.tipo}</td>
           </tr>
         </tbody>
@@ -36,40 +36,40 @@ const Firmar: React.FC<FirmarProps> = ({ selectedDoc }) => {
       <div className="firma-panel-btn-row" style={{ display: 'flex', gap: 16 }}>
         <button
           className="firma-panel-btn"
-          onClick={() => alert('Documento firmado correctamente')}
+          onClick={() => alert('Document signed successfully')}
         >
-          Firmar
+          Sign
         </button>
         <button
-          className="firma-panel-btn firma-panel-btn-rechazar"
+          className="firma-panel-btn firma-panel-btn-reject"
           style={{ background: '#e53935', color: '#fff', fontWeight: 700, boxShadow: '0 2px 12px 0 #e5393555' }}
-          onClick={() => setShowRechazo(!showRechazo)}
+          onClick={() => setShowReject(!showReject)}
         >
-          Rechazar
+          Reject
         </button>
       </div>
-      {showRechazo && (
+      {showReject && (
         <div style={{ marginTop: 18, width: '100%' }}>
           <textarea
-            placeholder="Motivo del rechazo..."
-            value={motivo}
-            onChange={e => setMotivo(e.target.value)}
+            placeholder="Reason for rejection..."
+            value={reason}
+            onChange={e => setReason(e.target.value)}
             style={{ width: '100%', minHeight: 60, borderRadius: 8, border: '1.5px solid #e53935', padding: 10, fontSize: 16, marginBottom: 8, resize: 'vertical', background: '#232323', color: '#fff' }}
           />
           <div style={{ textAlign: 'right' }}>
             <button
               className="firma-panel-btn"
               style={{ background: '#e53935', color: '#fff', fontWeight: 700, marginRight: 8 }}
-              onClick={() => { alert('Documento rechazado: ' + motivo); setShowRechazo(false); setMotivo(''); }}
+              onClick={() => { alert('Document rejected: ' + reason); setShowReject(false); setReason(''); }}
             >
-              Confirmar rechazo
+              Confirm rejection
             </button>
             <button
               className="firma-panel-btn"
               style={{ background: '#232323', color: '#FFD600', fontWeight: 700 }}
-              onClick={() => setShowRechazo(false)}
+              onClick={() => setShowReject(false)}
             >
-              Cancelar
+              Cancel
             </button>
           </div>
         </div>
