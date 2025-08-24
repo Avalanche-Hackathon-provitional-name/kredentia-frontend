@@ -139,25 +139,6 @@ Kredentia is a modern web platform for managing and signing digital documents, w
 
 ---
 
-## 📸 Screenshots
-
-### Notifications and Sign Panel
-
-![Notifications](https://i.imgur.com/2yaf2kA.png)
-*Source file: `src/components/Header.tsx` and `src/components/Firmar.tsx`*
-
-### Sidebar
-
-![Sidebar](https://i.imgur.com/4Qw8QwB.png)
-*Source file: `src/components/Sidebar.tsx` and `src/components/FirmarSidebar.tsx`*
-
-### Dashboard
-
-![Dashboard](https://i.imgur.com/4Qw8QwB.png)
-*Source file: `src/components/Dashboard.tsx`*
-
----
-
 ## 🤝 Contributions
 
 Pull requests and suggestions are welcome! Feel free to open issues to report bugs or propose improvements.
