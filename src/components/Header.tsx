@@ -50,6 +50,7 @@ const Header: React.FC<HeaderProps> = ({ setView }) => {
   const [hasNotifications, setHasNotifications] = useState(true)
   const [showNotifMenu, setShowNotifMenu] = useState(false)
 
+  
   //FECHA Y HORA EN LAS NOTIS SOLO BORRAR CUANDO LO TENGA EN BACKEND
   function getNow() {
     const d = new Date();
@@ -133,7 +134,7 @@ const Header: React.FC<HeaderProps> = ({ setView }) => {
     <>
       {/* Botón temporal para probar la llegada de una nueva notificación */}
       <button
-        style={{ position: 'fixed', top: 10, right: 10, zIndex: 9999 }}
+        style={{ position: '', top: 10, right: 10, zIndex: 9999 }}
         onClick={() => {
           setNotifications((prev) => [
             ...prev,
@@ -255,6 +256,8 @@ const Header: React.FC<HeaderProps> = ({ setView }) => {
           </div>
         </div>
       )}
+
+
     </>
   );
 }
