@@ -7,23 +7,6 @@
 
 ---
 
-
-## 🚀 ¿Qué es Kredentia?
-
-Kredentia es una plataforma web moderna para la gestión y firma de documentos digitales, con integración a wallets Web3 (como MetaMask). Su objetivo es facilitar la validación y firma de documentos de manera segura, rápida y transparente, tanto para usuarios como para administradores.
-
-### ¿Para quién es?
-- Empresas que requieren validar documentos de empleados o clientes.
-- Universidades o instituciones que emiten certificados digitales.
-# Kredentia Frontend
-
-![Vite](https://img.shields.io/badge/Vite-Frontend-blue?logo=vite)
-![React](https://img.shields.io/badge/React-18.x-61dafb?logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-4.x-3178c6?logo=typescript)
-![Wagmi](https://img.shields.io/badge/Wagmi-Web3-yellow?logo=ethereum)
-
----
-
 ## 🚀 What is Kredentia?
 
 Kredentia is a modern web platform for managing and signing digital documents, with Web3 wallet integration (such as MetaMask). Its goal is to make document validation and signing secure, fast, and transparent for both users and administrators.
