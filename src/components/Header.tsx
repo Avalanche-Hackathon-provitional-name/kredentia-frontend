@@ -1,38 +1,4 @@
 const NOTIF_SOUND_URL = '/sounds/notification.mp3';
-// ...dentro del componente Header...
-// (mover esto después de la declaración de notifications)
-
-// --- INSTRUCCIONES PARA BACKEND ---
-//
-// 1. El frontend espera recibir un array de notificaciones desde el backend.
-//    Cada notificación debe tener al menos:
-//      - id: string (único)
-//      - message: string (texto a mostrar)
-//      - datetime: string (formato YYYY-MM-DD HH:mm, o ISO)
-//      - (opcional) read: boolean (para saber si está leída)
-//
-// 2. El fetch debe hacerse a una ruta tipo:
-//      GET /api/notifications?user=walletAddress
-//    El parámetro user puede ser el address de la wallet conectado.
-//
-// 3. El backend debe devolver:
-//    {
-//      notifications: [
-//        { id, message, datetime, read }
-//      ]
-//    }
-//
-// 4. Cuando el usuario hace clic en una notificación:
-//      - El frontend la elimina del panel (opcional: puedes marcarla como leída en backend con un PATCH/PUT)
-//      - Si quieres que desaparezca solo cuando backend confirme, haz el fetch y elimina solo si el backend responde OK.
-//
-// 5. Si quieres que el punto rojo desaparezca solo cuando todas estén leídas, usa el campo read.
-//
-// 6. Si quieres notificaciones en tiempo real, puedes usar WebSocket, SSE o polling.
-//
-// 7. El campo datetime puede ser generado en backend (recomendado) o en frontend (solo para pruebas/demo).
-//
-// src/components/Header.tsx
 import './Header.css';
 import './poppins-font.css';
 import React, { useState, useRef, useEffect } from 'react';
@@ -40,9 +6,10 @@ import { useAccount, useConnect, useDisconnect } from 'wagmi'
 
 interface HeaderProps {
   setView?: (view: 'dashboard' | 'pendientes' | 'firmar') => void;
+  setSelectedDoc?: (doc: { name: string; tipo: string } | null) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ setView }) => {
+const Header: React.FC<HeaderProps> = ({ setView, setSelectedDoc }) => {
   const { address, isConnected } = useAccount()
   const { connectors, connect, status, error } = useConnect()
   const { disconnect } = useDisconnect()
@@ -58,10 +25,33 @@ const Header: React.FC<HeaderProps> = ({ setView }) => {
     return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
   }
   const [notifications, setNotifications] = useState<Array<{ id: string; message: string; datetime: string }>>([
-    { id: '1', message: 'Tienes una nueva firma pendiente', datetime: getNow() },
-    { id: '2', message: 'Tienes una nueva firma pendiente', datetime: getNow() },
-    { id: '3', message: 'Tienes una nueva firma pendiente', datetime: getNow() },
   ]);
+
+  // Función para agregar notificación de prueba
+  const addTestNotification = () => {
+    setNotifications((prev) => [
+      ...prev,
+      {
+        id: (Math.random() * 100000).toFixed(0),
+        message: 'Tienes una nueva firma pendiente',
+        datetime: getNow(),
+      },
+    ]);
+    setHasNotifications(true);
+  };
+
+  // Listener para la tecla Enter
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        addTestNotification();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   // Reproduce un sonido cuando llega una nueva notificación
   const playNotifSound = () => {
@@ -132,23 +122,7 @@ const Header: React.FC<HeaderProps> = ({ setView }) => {
 
   return (
     <>
-      {/* Botón temporal para probar la llegada de una nueva notificación */}
-      <button
-        style={{ position: 'absolute', top: 10, right: 10, zIndex: 9999 }}
-        onClick={() => {
-          setNotifications((prev) => [
-            ...prev,
-            {
-              id: (Math.random() * 100000).toFixed(0),
-              message: 'Tienes una nueva firma pendiente',
-              datetime: getNow(),
-            },
-          ]);
-          setHasNotifications(true);
-        }}
-      >
-        Probar notificación
-      </button>
+      {/* Al presionar la tecla = en el teclado, agregar notificación de prueba */}
       <div style={{ width: '100%', display: 'flex', alignItems: 'center', height: '100%', justifyContent: 'space-between' }}>
         <div className="header-left">
           <span className="header-logo">Kredentia</span>
@@ -187,6 +161,7 @@ const Header: React.FC<HeaderProps> = ({ setView }) => {
                         key={notif.id}
                         onClick={() => {
                           if (setView) setView('firmar');
+                          if (setSelectedDoc) setSelectedDoc({ name: 'Wallet 1', tipo: 'Certificado' });
                           setNotifications((prev) => prev.filter((n) => n.id !== notif.id));
                         }}
                       >

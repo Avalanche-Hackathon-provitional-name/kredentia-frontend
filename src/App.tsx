@@ -17,9 +17,9 @@ function App() {
 
 		return (
 			<>
-				<div className="navbar-section">
-					<Header setView={setView} />
-				</div>
+				   <div className="navbar-section">
+					   <Header setView={setView} setSelectedDoc={setSelectedDoc} />
+				   </div>
 				<div className="main-layout">
 					<div className="sidebar-section">
 						   <Sidebar setView={setView} view={view} setSelectedDoc={setSelectedDoc} />
